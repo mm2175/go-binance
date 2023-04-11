@@ -380,6 +380,7 @@ func (c *Client) callAPI(ctx context.Context, r *request, opts ...RequestOption)
 		}
 		if !apiErr.IsValid() {
 			apiErr.Response = data
+			fmt.Printf("binance futures api code is 0, resp: %#v, resp body: %s, status code: %d\n", res, string(data), res.StatusCode)
 		}
 		return nil, &res.Header, apiErr
 	}
